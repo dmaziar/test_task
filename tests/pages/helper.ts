@@ -22,12 +22,11 @@ export default class Helper {
 
 	async setCustomCssValue(value: string) {
 		await this.page.evaluate((value)=>{
-			await $e.run('document/elements/settings', {
+			$e.run('document/elements/settings', {
 				container: elementor.getPreviewContainer(),
 				settings: { custom_css: value }
 			});
-			await $e.run( 'document/save/default' );
+			$e.run( 'document/save/default' );
 		}, value);
-		
 	}
 }
