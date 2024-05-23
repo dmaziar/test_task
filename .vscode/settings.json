@@ -1,0 +1,25 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+    },
+    "workbench.editor.enablePreview": false,
+    "eslint.lintTask.enable": true,
+    "[json]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    },
+    "eslint.debug": true,
+    "eslint.format.enable": true,
+    "eslint.run": "onSave",
+    "cSpell.words": [
+        "Elementor"
+    ],
+    "files.insertFinalNewline": true,
+    "git.ignoreLimitWarning": true
+}
