@@ -9,34 +9,34 @@ on:
 
 jobs:
   test:
-    if: github.event.action != 'closed'
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
       - name: debug
         run: echo ${{ github.event.pull_request.head.ref }}
+
       - uses: actions/checkout@v4
+        if: github.event.action != 'closed'
       - uses: actions/setup-node@v4
+        if: github.event.action != 'closed'
         with:
           node-version: lts/*
       - name: Install dependencies
+        if: github.event.action != 'closed'
         run: npm ci
       - name: Install Playwright Browsers
+        if: github.event.action != 'closed'
         run: npx playwright install --with-deps
       - name: Run Playwright tests
+        if: github.event.action != 'closed'
         run: npx playwright test
       - uses: actions/upload-artifact@v4
-        if: always()
+        if: github.event.action != 'closed'
         with:
           name: playwright-report
           path: playwright-report/
           retention-days: 1
-
-  check-something:
-    name: Check Something
-    if: github.event.action == 'closed'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Do something on close
+      - name: do something
+        if: github.event.action == 'closed'
         run: |
           echo "Source branch: ${{ github.event.pull_request.head.ref}}"
